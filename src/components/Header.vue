@@ -2,12 +2,15 @@
   <header class="header">
     <section class="links">
       <ul>
-        <li><h3 class="icon">Manager</h3></li>
-        <li>Home</li>
+        <li>
+          <router-link to="/" tag="h3" class="icon"> Manager</router-link>
+        </li>
+
+        <li><router-link to="/" tag="a">Home</router-link></li>
       </ul>
     </section>
     <section>
-      <button>Add Customer</button>
+      <router-link to="NewCustomer" tag="button">Add Customer</router-link>
     </section>
   </header>
 </template>
@@ -34,5 +37,12 @@ export default {};
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+.links a {
+  color: black;
+  font-weight: 600;
+}
+.icon {
+  cursor: pointer;
 }
 </style>

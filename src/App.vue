@@ -2,29 +2,25 @@
   <div id="app">
     <Header />
     <main class="conteiner">
-      <AddCustomer />
+      <router-view />
     </main>
   </div>
 </template>
-
 <script>
 import Header from "./components/Header";
-import AddCustomer from "./components/AddCustomer";
 export default {
-  name: "App",
   components: {
     Header,
-    AddCustomer,
   },
 };
 </script>
-
 <style>
 * {
   margin: 0;
   padding: 0;
   list-style: none;
   box-sizing: border-box;
+  text-decoration: none;
 }
 #app {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
@@ -34,7 +30,7 @@ export default {
 .conteiner {
   padding: 3rem 5rem;
 }
-.btn{
+.btn {
   height: 2rem;
   min-width: 3rem;
   outline: none;
@@ -43,6 +39,6 @@ export default {
   font-weight: 600;
   margin: 0 5px;
   padding: 5px 10px;
-    color: white;
+  color: white;
 }
 </style>
