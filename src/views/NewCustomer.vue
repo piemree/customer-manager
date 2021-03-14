@@ -46,8 +46,27 @@ export default {
     };
   },
   methods: {
-    save(){
-      this.$store.dispatch('saveCustomer',this.customer)
+    async save() {
+      let isEmpty = true;
+
+      for (let el in this.customer) {
+        if (this.customer[el] == "") {
+          isEmpty = true;
+          break;
+        } else {
+          isEmpty = false;
+        }
+      }
+
+      if (!isEmpty) {
+        if (confirm("Are you sure?")) {
+          let res = await this.$store.dispatch("saveCustomer", this.customer);
+          console.log(res);
+          this.$router.push({ path: "/" });
+        }
+      } else {
+        alert("Please fill all areas.");
+      }
     },
   },
 };
