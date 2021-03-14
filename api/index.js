@@ -18,6 +18,7 @@ mongoose
   .connect(`${process.env.DBURL}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false 
   })
   .then((response) => {
     console.log("Connection success");
@@ -41,12 +42,28 @@ app.get("/get-customers", async (req, res) => {
 });
 
 app.post("/get-customer-by-id", async (req, res) => {
-
-  let currentCustomer = await customer
-    .findOne({ _id: req.body.id })
-    .exec();
-    console.log(currentCustomer);
+  let currentCustomer = await customer.findOne({ _id: req.body.id }).exec();
   res.status(200).json({ currentCustomer });
+});
+
+app.post("/delete-customer-by-id", async (req, res) => {
+  await customer.findOneAndDelete({ _id: req.body.id }).exec();
+  let dbCustomers = await customer.find({});
+
+  res.status(200).json({ customers: { ...dbCustomers } });
+});
+
+app.post("/update-customer", async (req, res) => {
+
+  let changedCustomer = req.body.customer;
+ let id=req.body.customer._id
+  delete changedCustomer["_id"];
+
+ await customer.findOneAndUpdate({_id:id},changedCustomer)
+
+  let dbCustomers = await customer.find({});
+  
+  res.status(200).json({ customers: { ...dbCustomers } });
 });
 
 app.listen(port, () => {
