@@ -3,16 +3,18 @@
 ## Project setup
 ```
 npm install
-```
 
+cd api && npm install
+```
+### start server
+```
+cd api && npm start
+```
 ### start client
 ```
 npm run serve
 ```
-### start server
-```
-cd api && nodemon start
-```
+
 ###Client and server concurrently
 ```
 npm run start
