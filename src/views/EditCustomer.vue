@@ -1,13 +1,13 @@
 <template>
   <div>
-    <AddCustomer/>
+    <Edit/>
   </div>
 </template>
 <script>
-import AddCustomer from '../components/AddCustomer'
+import Edit from '../components/Edit'
 export default {
   components:{
-    AddCustomer
+    Edit
   },
 };
 </script>

@@ -16,11 +16,22 @@ const routes = [
       import(/* webpackChunkName: "NewCustomer" */ "../views/NewCustomer.vue"),
   },
   {
-    path:"/customer:id",
-    name:"CustomerDetails",
+    path: "/customer:id",
+    name: "CustomerDetails",
     component: () =>
-      import(/* webpackChunkName: "NewCustomer" */ "../views/CustomerDetails.vue"),
-  }
+      import(
+        /* webpackChunkName: "NewCustomer" */ "../views/CustomerDetails.vue"
+      ),
+  },
+  {
+    path: "/EditCustomer",
+    name: "EditCustomer",
+    component: () =>
+      import(
+        /* webpackChunkName: "EditCustomer" */
+        "../views/EditCustomer.vue"
+      ),
+  },
 ];
 
 const router = new VueRouter({

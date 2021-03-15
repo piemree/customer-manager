@@ -9,8 +9,10 @@
         <li><router-link to="/" tag="a">Home</router-link></li>
       </ul>
     </section>
-    <section>
-      <router-link to="NewCustomer" tag="button">Add Customer</router-link>
+    <section class="add-section">
+      <router-link to="NewCustomer" class="btn-add" tag="button"
+        >Add Customer</router-link
+      >
     </section>
   </header>
 </template>
@@ -18,6 +20,19 @@
 export default {};
 </script>
 <style scoped>
+.add-section {
+  height: 100%;
+}
+.btn-add {
+  height: 100%;
+  border: none;
+  background-color: inherit;
+  color: black;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  outline:none;
+}
 .header {
   height: 4rem;
   width: 100%;

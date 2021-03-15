@@ -1,6 +1,6 @@
 <template>
   <form>
-    <h1>New Customer</h1>
+    <h1>Edit Customer</h1>
     <section class="customer-info">
       <h3>Customer info</h3>
       <section class="form">
@@ -28,7 +28,7 @@
         <input v-model="customer.city" type="text" />
       </section>
     </section>
-    <button @click.prevent="save" class="btn save">Submit</button>
+    <button @click.prevent="update" class="btn save">Submit</button>
   </form>
 </template>
 <script>
@@ -42,11 +42,17 @@ export default {
         phoneNumber: "",
         adress: "",
         city: "",
+        _id: "",
       },
     };
   },
+  created() {
+    let customer = this.$store.getters.getCurrentCustomer;
+    this.customer = { ...customer };
+    console.log(this.customer);
+  },
   methods: {
-    async save() {
+    async update() {
       let isEmpty = true;
 
       for (let el in this.customer) {
@@ -60,9 +66,10 @@ export default {
 
       if (!isEmpty) {
         if (confirm("Are you sure?")) {
-          this.$store.commit("setAlertMsg", "Customer Added");
+          this.$store.commit("setAlertMsg", "Customer Edited");
           this.$store.commit("setAlertState", true);
-          await this.$store.dispatch("saveCustomer", this.customer);
+          await this.$store.dispatch("updateCustomer", this.customer);
+
           this.$router.push({ path: "/" });
         }
       } else {

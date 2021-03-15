@@ -40,5 +40,6 @@ export default {
   margin: 0 5px;
   padding: 5px 10px;
   color: white;
+  cursor: pointer;
 }
 </style>
