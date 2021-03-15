@@ -12,7 +12,7 @@ const state = () => ({
     _id: "",
   },
   alert: false,
-  alertMsg:"" ||"ALERT"
+  alertMsg:""
 });
 const getters = {
   getAlertMsg(state) {
