@@ -5,9 +5,17 @@
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### start client
 ```
 npm run serve
+```
+### start server
+```
+cd api && nodemon start
+```
+###Client and server concurrently
+```
+npm run start
 ```
 
 ### Compiles and minifies for production
