@@ -11,7 +11,7 @@ const state = () => ({
     city: "",
     _id: "",
   },
-  alert: true,
+  alert: false,
   alertMsg:"" ||"ALERT"
 });
 const getters = {
